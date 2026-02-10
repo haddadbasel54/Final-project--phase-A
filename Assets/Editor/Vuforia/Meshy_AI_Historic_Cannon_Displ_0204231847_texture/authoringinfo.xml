@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<QCARInfo>
+    <TargetSet version="36.0" toolVersion="v7.3.1">
+        <ModelTarget name="Meshy_AI_Historic_Cannon_Displ_0204231847_texture" targetId="1adfc7af98f34c028f84b4a8124ac001" version="14.0" toolVersion="v7.3.1" bbox="-0.806526 -0.465424 -1.00304 0.807836 0.462219 1.00288" trackingMode="scan" upVector="0.0 1.0 0.0" optimizeTrackingFor="default" realisticTextures="yes" />
+    </TargetSet>
+    <Assembly name="Meshy_AI_Historic_Cannon_Displ_0204231847_texture" assemblyId="5202eb35f3c549d49e05b02b867ffc5d">
+        <Part name="Meshy_AI_Historic_Cannon_Displ_0204231847_texture" translation="0 0 0" rotation="AD: 0 0 1 0" />
+        <EntryPoint name="(none)" trained="yes" />
+    </Assembly>
+</QCARInfo>

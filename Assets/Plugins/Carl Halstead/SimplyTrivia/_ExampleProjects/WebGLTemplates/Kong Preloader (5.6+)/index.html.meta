@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d79d2e98ce8a5e5489b74fb1b2f4cfc6
+timeCreated: 1466457760
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 102628
+  packageName: Simply Trivia
+  packageVersion: 1.5
+  assetPath: Assets/Plugins/Carl Halstead/SimplyTrivia/_ExampleProjects/WebGLTemplates/Kong
+    Preloader (5.6+)/index.html
+  uploadId: 256964

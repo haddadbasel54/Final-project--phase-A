@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4b71c2c5c5df842419113179fc527cd5
+timeCreated: 1509991826
+licenseType: Store
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 102628
+  packageName: Simply Trivia
+  packageVersion: 1.5
+  assetPath: Assets/Plugins/Carl Halstead/SimplyTrivia/_ExampleProjects/MobileAndWeb/Simple
+    UI/Fonts/OFL.txt
+  uploadId: 256964

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4ab91e231bf4ce044b2160a3764787f5
+timeCreated: 1516710899
+licenseType: Store
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 102628
+  packageName: Simply Trivia
+  packageVersion: 1.5
+  assetPath: Assets/Plugins/Carl Halstead/SimplyTrivia/_ExampleProjects/WebGLTemplates/_NOTES.txt
+  uploadId: 256964

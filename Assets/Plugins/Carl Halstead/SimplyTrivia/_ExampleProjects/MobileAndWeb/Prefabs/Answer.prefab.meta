@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: dd695c0d51699664d993a81155cb5a74
+timeCreated: 1511956523
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 102628
+  packageName: Simply Trivia
+  packageVersion: 1.5
+  assetPath: Assets/Plugins/Carl Halstead/SimplyTrivia/_ExampleProjects/MobileAndWeb/Prefabs/Answer.prefab
+  uploadId: 256964

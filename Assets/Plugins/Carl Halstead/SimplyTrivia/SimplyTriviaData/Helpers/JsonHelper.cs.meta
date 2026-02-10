@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 8cbe1287d835a9a448a28e24659473fd
+timeCreated: 1507913217
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 102628
+  packageName: Simply Trivia
+  packageVersion: 1.5
+  assetPath: Assets/Plugins/Carl Halstead/SimplyTrivia/SimplyTriviaData/Helpers/JsonHelper.cs
+  uploadId: 256964

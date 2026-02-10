@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: b82adc3f48aad64418bbb5d526acd848
+timeCreated: 1514482192
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 102628
+  packageName: Simply Trivia
+  packageVersion: 1.5
+  assetPath: Assets/Plugins/Carl Halstead/SimplyTrivia/_ExampleProjects/MobileAndWeb/Scripts/TimerManager.cs
+  uploadId: 256964
