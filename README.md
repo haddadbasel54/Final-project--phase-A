@@ -9,3 +9,6 @@ During the AR experience, simple on-screen instructions guide users to point the
 The gamification system, including badges and quizzes, is accompanied by short and clear explanations that help users understand how to progress and unlock achievements. In cases of technical issues such as AR detection difficulties or GPS inaccuracies, users can continue using the application by manually selecting sites directly from the map.
 
 Overall, the user help approach focuses on simplicity, accessibility, and reducing user frustration, allowing users to concentrate on exploring and learning about Acre’s cultural heritage rather than dealing with technical complexities.
+
+To open the project on your unity editor, download the ziop file from github, and add the source file folder in unity hub and open it, it may take sometime in order for unity to build the porject on your computer.
+
