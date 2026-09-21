@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "411800888848",
+    "project_id": "culturalheritagedb",
+    "storage_bucket": "culturalheritagedb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411800888848:android:a281bc69a7d89c501a0c95",
+        "android_client_info": {
+          "package_name": "com.abedbasel.towerheritage"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4rZvA4BHtFLR3_J5UksvTR_aXKcT_glw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d137f987521196a409d853a1d38cd723
+timeCreated: 1516626930
+licenseType: Store
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 102628
+  packageName: Simply Trivia
+  packageVersion: 1.5
+  assetPath: Assets/Plugins/Carl Halstead/SimplyTrivia/_ExampleProjects/MobileAndWeb/_NOTES.txt
+  uploadId: 256964

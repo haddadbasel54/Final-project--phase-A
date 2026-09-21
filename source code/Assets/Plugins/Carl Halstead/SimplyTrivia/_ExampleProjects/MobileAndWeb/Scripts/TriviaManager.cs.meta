@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 12628c7ed9c25174891f3f54a5bc5a1c
+timeCreated: 1511957177
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 102628
+  packageName: Simply Trivia
+  packageVersion: 1.5
+  assetPath: Assets/Plugins/Carl Halstead/SimplyTrivia/_ExampleProjects/MobileAndWeb/Scripts/TriviaManager.cs
+  uploadId: 256964

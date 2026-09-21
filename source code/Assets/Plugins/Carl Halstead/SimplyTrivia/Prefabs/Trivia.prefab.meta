@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 4196d47f315fb4b46bf17eac3ddea79c
+timeCreated: 1513877523
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 102628
+  packageName: Simply Trivia
+  packageVersion: 1.5
+  assetPath: Assets/Plugins/Carl Halstead/SimplyTrivia/Prefabs/Trivia.prefab
+  uploadId: 256964

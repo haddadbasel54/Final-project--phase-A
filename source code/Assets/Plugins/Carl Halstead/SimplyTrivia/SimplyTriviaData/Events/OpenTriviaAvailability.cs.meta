@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 5fb59bc1d3f127949a2ddf5170e4d1a7
+timeCreated: 1527179079
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 102628
+  packageName: Simply Trivia
+  packageVersion: 1.5
+  assetPath: Assets/Plugins/Carl Halstead/SimplyTrivia/SimplyTriviaData/Events/OpenTriviaAvailability.cs
+  uploadId: 256964

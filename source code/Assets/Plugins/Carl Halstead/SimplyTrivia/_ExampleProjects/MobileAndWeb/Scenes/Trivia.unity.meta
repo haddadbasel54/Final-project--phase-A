@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 2b299a64df60bd54ba459e76f99c596a
+timeCreated: 1511955281
+licenseType: Store
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 102628
+  packageName: Simply Trivia
+  packageVersion: 1.5
+  assetPath: Assets/Plugins/Carl Halstead/SimplyTrivia/_ExampleProjects/MobileAndWeb/Scenes/Trivia.unity
+  uploadId: 256964
