@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
@@ -21,10 +22,8 @@ public class TowerOfFliesGPSManager : MonoBehaviour
     public GameObject vuforiaModelTarget;
     public GameObject duplicatedVisuals;
 
-    [Header("Height & Scaling")]
+    [Header("Height")]
     public float seaLevelOffset = -4.0f;
-    public Vector3 farScale = new Vector3(0.5f, 0.5f, 0.5f);
-    public Vector3 nearScale = new Vector3(1.0f, 1.0f, 1.0f);
     [Range(0.1f, 5.0f)] public float lerpSpeed = 1.5f;
 
     private bool isNear = false;
@@ -69,10 +68,17 @@ public class TowerOfFliesGPSManager : MonoBehaviour
         }
     }
 
+
     void OnStartButtonClicked()
     {
-        if (animationController != null) animationController.PlayAnimation();
-        if (narrationController != null) narrationController.Play();
+        if (duplicatedVisuals != null)
+            duplicatedVisuals.SetActive(true);
+
+        if (animationController != null)
+            animationController.PlayAnimation();
+
+        if (narrationController != null)
+            narrationController.Play();
 
         if (startButton != null)
             startButton.gameObject.SetActive(false);
@@ -92,8 +98,12 @@ public class TowerOfFliesGPSManager : MonoBehaviour
 
         if (dist <= triggerRange)
         {
-            if (!isNear) StartSequence();
-            UpdateTowerTransform(currentLat, currentLon, dist);
+            if (!isNear)
+                StartSequence();
+
+            // Update position only after the button has been clicked
+            if (hasClickedStart && duplicatedVisuals != null)
+                UpdateTowerTransform(currentLat, currentLon, dist);
         }
         else if (isNear)
         {
@@ -104,6 +114,7 @@ public class TowerOfFliesGPSManager : MonoBehaviour
     void StartSequence()
     {
         isNear = true;
+
         if (vuforiaModelTarget != null)
         {
             var observer = vuforiaModelTarget.GetComponent<ObserverBehaviour>();
@@ -111,7 +122,9 @@ public class TowerOfFliesGPSManager : MonoBehaviour
             vuforiaModelTarget.SetActive(false);
         }
 
-        if (duplicatedVisuals != null) duplicatedVisuals.SetActive(true);
+        // Keep duplicated visuals hidden until the button is clicked
+        if (duplicatedVisuals != null)
+            duplicatedVisuals.SetActive(false);
 
         if (startButton != null && !hasClickedStart)
             startButton.gameObject.SetActive(true);
@@ -130,29 +143,44 @@ public class TowerOfFliesGPSManager : MonoBehaviour
             if (observer != null) observer.enabled = true;
         }
 
-        if (duplicatedVisuals != null) duplicatedVisuals.SetActive(false);
-        if (startButton != null) startButton.gameObject.SetActive(false);
+        if (duplicatedVisuals != null)
+            duplicatedVisuals.SetActive(false);
 
-        if (animationController != null) animationController.StopAnimation();
-        if (narrationController != null) narrationController.Stop();
+        if (startButton != null)
+            startButton.gameObject.SetActive(false);
+
+        if (animationController != null)
+            animationController.StopAnimation();
+
+        if (narrationController != null)
+            narrationController.Stop();
     }
 
     void UpdateTowerTransform(float lat, float lon, float dist)
     {
-        float t = Mathf.InverseLerp(triggerRange, 15f, dist);
-        duplicatedVisuals.transform.localScale = Vector3.Lerp(farScale, nearScale, t);
-
         float bearing = GetBearing(lat, lon, targetLat, targetLon);
         float rotationAngle = bearing - Input.compass.trueHeading;
-        Vector3 direction = new Vector3(Mathf.Sin(rotationAngle * Mathf.Deg2Rad), 0, Mathf.Cos(rotationAngle * Mathf.Deg2Rad));
 
-        Vector3 targetPosition = Camera.main.transform.position + (direction * Mathf.Max(dist, 5f));
+        Vector3 direction = new Vector3(
+            Mathf.Sin(rotationAngle * Mathf.Deg2Rad),
+            0,
+            Mathf.Cos(rotationAngle * Mathf.Deg2Rad)
+        );
+
+        Vector3 targetPosition = Camera.main.transform.position
+                               + (direction * Mathf.Max(dist, 5f));
+
         targetPosition.y = Camera.main.transform.position.y + seaLevelOffset;
 
-        duplicatedVisuals.transform.position = Vector3.Lerp(duplicatedVisuals.transform.position, targetPosition, Time.deltaTime * lerpSpeed);
+        duplicatedVisuals.transform.position = Vector3.Lerp(
+            duplicatedVisuals.transform.position,
+            targetPosition,
+            Time.deltaTime * lerpSpeed
+        );
 
         Vector3 lookPos = Camera.main.transform.position;
         lookPos.y = duplicatedVisuals.transform.position.y;
+
         duplicatedVisuals.transform.LookAt(lookPos);
     }
 
@@ -161,41 +189,53 @@ public class TowerOfFliesGPSManager : MonoBehaviour
         float R = 6371000f;
         float dLat = (targetLat - lat1) * Mathf.Deg2Rad;
         float dLon = (targetLon - lon1) * Mathf.Deg2Rad;
+
         float a = Mathf.Sin(dLat / 2) * Mathf.Sin(dLat / 2) +
                   Mathf.Cos(lat1 * Mathf.Deg2Rad) * Mathf.Cos(targetLat * Mathf.Deg2Rad) *
                   Mathf.Sin(dLon / 2) * Mathf.Sin(dLon / 2);
+
         return R * (2 * Mathf.Atan2(Mathf.Sqrt(a), Mathf.Sqrt(1 - a)));
     }
 
     float GetBearing(float lat1, float lon1, float lat2, float lon2)
     {
         float dLon = (lon2 - lon1) * Mathf.Deg2Rad;
+
         float y = Mathf.Sin(dLon) * Mathf.Cos(lat2 * Mathf.Deg2Rad);
+
         float x = Mathf.Cos(lat1 * Mathf.Deg2Rad) * Mathf.Sin(lat2 * Mathf.Deg2Rad) -
                   Mathf.Sin(lat1 * Mathf.Deg2Rad) * Mathf.Cos(lat2 * Mathf.Deg2Rad) * Mathf.Cos(dLon);
+
         return (Mathf.Atan2(y, x) * Mathf.Rad2Deg + 360) % 360;
     }
 
     IEnumerator SafeStartGPS()
     {
         yield return new WaitForSeconds(1.0f);
+
 #if UNITY_ANDROID
         if (!UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission.FineLocation))
             UnityEngine.Android.Permission.RequestUserPermission(UnityEngine.Android.Permission.FineLocation);
 #endif
+
         Input.location.Start(1f, 1f);
+
         int maxWait = 20;
+
         while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
         {
             yield return new WaitForSeconds(1);
             maxWait--;
         }
-        if (Input.location.status != LocationServiceStatus.Failed) gpsInitialized = true;
+
+        if (Input.location.status != LocationServiceStatus.Failed)
+            gpsInitialized = true;
     }
 
     private void SaveProgress()
     {
         int slot = PlayerPrefs.GetInt("ActiveSlotIndex", 0);
+
         if (slot > 0)
         {
             PlayerPrefs.SetInt("Slot" + slot + "_BronzeUnlocked_tower_of_flies", 1);

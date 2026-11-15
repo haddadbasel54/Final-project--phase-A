@@ -863,20 +863,22 @@ VideoPlayer:
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
-  m_AspectRatio: 5
+  m_AspectRatio: 3
   m_DataSource: 0
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
   m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 0
   m_SkipOnDrop: 1
-  m_Looping: 1
+  m_Looping: 0
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
@@ -2551,8 +2553,6 @@ MonoBehaviour:
   vuforiaModelTarget: {fileID: 2005698559}
   duplicatedVisuals: {fileID: 2129267545}
   seaLevelOffset: -3
-  farScale: {x: 1, y: 1, z: 1}
-  nearScale: {x: 10, y: 10, z: 10}
   lerpSpeed: 1.5
 --- !u!1 &1368188924
 GameObject:
@@ -3239,7 +3239,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646735674}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7129703a71c940141b6777bd0ddc92ad, type: 2}
   m_CullingMode: 0
@@ -4317,7 +4317,7 @@ PrefabInstance:
       addedObject: {fileID: 2133676433}
     - targetCorrespondingSourceObject: {fileID: 8582328792933270329, guid: 99fad2a514d29af42b4b7d9bd1de0a55, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2133676443}
+      addedObject: {fileID: 2133676436}
   m_SourcePrefab: {fileID: 100100000, guid: 99fad2a514d29af42b4b7d9bd1de0a55, type: 3}
 --- !u!4 &2133676428 stripped
 Transform:
@@ -4339,7 +4339,7 @@ MonoBehaviour:
   content: {fileID: 1646735675}
   positionSmooth: 12
   rotationSmooth: 12
---- !u!114 &2133676443
+--- !u!114 &2133676436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
