@@ -2552,9 +2552,6 @@ MonoBehaviour:
   narrationController: {fileID: 421642983}
   vuforiaModelTarget: {fileID: 2005698559}
   duplicatedVisuals: {fileID: 2129267545}
-  zoomSensitivity: 0.3
-  minZoom: 0.3
-  maxZoom: 3
 --- !u!1 &1368188924
 GameObject:
   m_ObjectHideFlags: 0
@@ -3188,6 +3185,7 @@ GameObject:
   - component: {fileID: 1646735675}
   - component: {fileID: 1646735677}
   - component: {fileID: 1646735676}
+  - component: {fileID: 1646735678}
   m_Layer: 4
   m_Name: AninationController
   m_TagString: Untagged
@@ -3254,6 +3252,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1646735678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646735674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a07801f3d3617bb43965d32d56a7c8ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arCamera: {fileID: 948052463}
+  dragDepth: 3
+  zoomSensitivity: 0.005
+  minZoom: 0.3
+  maxZoom: 3
 --- !u!1 &1670055006
 GameObject:
   m_ObjectHideFlags: 0
@@ -3976,6 +3991,7 @@ GameObject:
   - component: {fileID: 2129267546}
   - component: {fileID: 2129267548}
   - component: {fileID: 2129267547}
+  - component: {fileID: 2129267549}
   m_Layer: 4
   m_Name: AninationController2
   m_TagString: Untagged
@@ -4042,6 +4058,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2129267549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129267545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a07801f3d3617bb43965d32d56a7c8ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arCamera: {fileID: 948052463}
+  dragDepth: 3
+  zoomSensitivity: 0.005
+  minZoom: 0.3
+  maxZoom: 3
 --- !u!1001 &2133676427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4328,6 +4361,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8582328792933270329, guid: 99fad2a514d29af42b4b7d9bd1de0a55, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2133676445}
+    - targetCorrespondingSourceObject: {fileID: 8582328792933270329, guid: 99fad2a514d29af42b4b7d9bd1de0a55, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2133676446}
+    - targetCorrespondingSourceObject: {fileID: 8582328792933270329, guid: 99fad2a514d29af42b4b7d9bd1de0a55, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2133676449}
   m_SourcePrefab: {fileID: 100100000, guid: 99fad2a514d29af42b4b7d9bd1de0a55, type: 3}
 --- !u!4 &2133676428 stripped
 Transform:
@@ -4404,6 +4443,42 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 2005698562}
   mModelTargetPreview: {fileID: 0}
 --- !u!114 &2133676445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005698559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1621554113, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 2005698562}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: tower_of_flies__0519120252_texture
+  mDatasetName: Vuforia/tower_of_flies.xml
+  mCastedBehaviour: {fileID: 2005698562}
+  mModelTargetPreview: {fileID: 0}
+--- !u!114 &2133676446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005698559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1621554113, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 2005698562}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: tower_of_flies__0519120252_texture
+  mDatasetName: Vuforia/tower_of_flies.xml
+  mCastedBehaviour: {fileID: 2005698562}
+  mModelTargetPreview: {fileID: 0}
+--- !u!114 &2133676449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4600,6 +4675,10 @@ PrefabInstance:
     - target: {fileID: 2722606889553400613, guid: 0d2b412cae2a0b84d8ff98e9bd9479fd, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722606889553400613, guid: 0d2b412cae2a0b84d8ff98e9bd9479fd, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5510339887670456351, guid: 0d2b412cae2a0b84d8ff98e9bd9479fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

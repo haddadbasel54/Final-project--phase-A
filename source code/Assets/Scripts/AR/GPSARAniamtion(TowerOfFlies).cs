@@ -8,7 +8,7 @@ public class TowerOfFliesGPSManager : MonoBehaviour
     [Header("GPS Target (Acre, Israel)")]
     public float targetLat = 32.918333f;
     public float targetLon = 35.071944f;
-    public float triggerRange;
+    public float triggerRange = 180f;
 
     [Header("UI Controls")]
     public Button startButton;
@@ -21,34 +21,11 @@ public class TowerOfFliesGPSManager : MonoBehaviour
     public GameObject vuforiaModelTarget;
     public GameObject duplicatedVisuals;
 
-    [Header("Pinch Zoom")]
-    [Range(0.01f, 1f)]
-    public float zoomSensitivity = 0.3f;
-
-    public float minZoom = 0.3f;
-    public float maxZoom = 3f;
-
-    private Transform zoomTarget;
-    private Vector3 originalVisualScale;
-
-    private float zoomFactor = 1f;
-    private float previousPinchDistance = 0f;
-
     private bool isNear = false;
     private bool gpsInitialized = false;
     private bool hasClickedStart = false;
     private bool isQuitting = false;
     private bool arModeEnabled = true;
-
-    void Awake()
-    {
-        // Save the original scale without changing the object's placement.
-        if (duplicatedVisuals != null)
-        {
-            zoomTarget = duplicatedVisuals.transform;
-            originalVisualScale = zoomTarget.localScale;
-        }
-    }
 
     void Start()
     {
@@ -101,20 +78,13 @@ public class TowerOfFliesGPSManager : MonoBehaviour
         if (!arModeEnabled || hasClickedStart)
             return;
 
-        if (duplicatedVisuals == null || zoomTarget == null)
+        if (duplicatedVisuals == null)
         {
             Debug.LogError("GPS Animation: Duplicated Visuals not assigned!");
             return;
         }
 
-        // Reset pinch zoom to the saved original scale.
-        zoomFactor = 1f;
-        previousPinchDistance = 0f;
-
-        zoomTarget.localScale = originalVisualScale;
-
-        // Activate objects exactly where they are positioned in Unity.
-        // Do not change their parent, position, or rotation.
+        // Activate objects without changing their placement.
         duplicatedVisuals.SetActive(true);
 
         // Start animation.
@@ -139,9 +109,6 @@ public class TowerOfFliesGPSManager : MonoBehaviour
         if (!arModeEnabled)
             return;
 
-        if (hasClickedStart)
-            HandlePinchZoom();
-
         if (!gpsInitialized ||
             Input.location.status != LocationServiceStatus.Running)
             return;
@@ -159,51 +126,6 @@ public class TowerOfFliesGPSManager : MonoBehaviour
         else if (isNear)
         {
             StopSequence();
-        }
-    }
-
-    void HandlePinchZoom()
-    {
-        if (zoomTarget == null ||
-            duplicatedVisuals == null ||
-            !duplicatedVisuals.activeInHierarchy)
-            return;
-
-        if (Input.touchCount == 2)
-        {
-            Touch touch1 = Input.GetTouch(0);
-            Touch touch2 = Input.GetTouch(1);
-
-            float currentDistance = Vector2.Distance(
-                touch1.position,
-                touch2.position
-            );
-
-            if (previousPinchDistance <= 0f)
-            {
-                previousPinchDistance = currentDistance;
-                return;
-            }
-
-            float difference = currentDistance - previousPinchDistance;
-
-            zoomFactor += difference * zoomSensitivity * 0.001f;
-
-            zoomFactor = Mathf.Clamp(
-                zoomFactor,
-                minZoom,
-                maxZoom
-            );
-
-            // Scale the entire animated parent.
-            // Original scale is always preserved as the baseline.
-            zoomTarget.localScale = originalVisualScale * zoomFactor;
-
-            previousPinchDistance = currentDistance;
-        }
-        else
-        {
-            previousPinchDistance = 0f;
         }
     }
 
@@ -225,12 +147,6 @@ public class TowerOfFliesGPSManager : MonoBehaviour
     void StopGPSAnimation()
     {
         hasClickedStart = false;
-        previousPinchDistance = 0f;
-        zoomFactor = 1f;
-
-        // Restore original scale.
-        if (zoomTarget != null)
-            zoomTarget.localScale = originalVisualScale;
 
         if (duplicatedVisuals != null)
             duplicatedVisuals.SetActive(false);

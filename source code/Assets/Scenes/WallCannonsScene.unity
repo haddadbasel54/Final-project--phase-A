@@ -4085,6 +4085,7 @@ GameObject:
   - component: {fileID: 2146568004}
   - component: {fileID: 2146568005}
   - component: {fileID: 2146568006}
+  - component: {fileID: 2146568007}
   m_Layer: 0
   m_Name: animationController
   m_TagString: Untagged
@@ -4148,6 +4149,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionBoolName: isWallCannonDetected
   entryStateName: Condtion Satae- if target found trigger animation
+--- !u!114 &2146568007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146568003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a07801f3d3617bb43965d32d56a7c8ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arCamera: {fileID: 87756912}
+  dragDepth: 3
+  zoomSensitivity: 0.005
+  minZoom: 0.3
+  maxZoom: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
