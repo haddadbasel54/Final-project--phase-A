@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -31,31 +32,51 @@ public class ARToggleManager : MonoBehaviour
 
         if (arIsOn)
         {
-            buttonText.text = "Turn AR Off";
-            if (vuforiaCamera != null) vuforiaCamera.enabled = true;
+            // Switch to AR
+            if (buttonText != null)
+                buttonText.text = "Turn AR Off";
 
-            modelTarget.SetActive(true);
-            videoCanvas.SetActive(false);
-            videoPlayer.Stop();
+            if (vuforiaCamera != null)
+                vuforiaCamera.enabled = true;
 
-            if (onVideoStop != null) onVideoStop.Invoke();
+            if (modelTarget != null)
+                modelTarget.SetActive(true);
+
+            if (videoPlayer != null)
+                videoPlayer.Stop();
+
+            if (videoCanvas != null)
+                videoCanvas.SetActive(false);
+
+            if (onVideoStop != null)
+                onVideoStop.Invoke();
+
+            if (gpsManager != null)
+                gpsManager.SetARMode(true);
         }
         else
         {
-            buttonText.text = "Turn AR On";
-            if (vuforiaCamera != null) vuforiaCamera.enabled = false;
+            // Switch to non-AR video
+            if (buttonText != null)
+                buttonText.text = "Turn AR On";
 
-            // This resets the GPS sequence so the tower hides and button resets
             if (gpsManager != null)
-            {
-                gpsManager.StopSequence();
-            }
+                gpsManager.SetARMode(false);
 
-            modelTarget.SetActive(false);
-            videoCanvas.SetActive(true);
-            videoPlayer.Play();
+            if (vuforiaCamera != null)
+                vuforiaCamera.enabled = false;
 
-            if (onVideoStart != null) onVideoStart.Invoke();
+            if (modelTarget != null)
+                modelTarget.SetActive(false);
+
+            if (videoCanvas != null)
+                videoCanvas.SetActive(true);
+
+            if (videoPlayer != null)
+                videoPlayer.Play();
+
+            if (onVideoStart != null)
+                onVideoStart.Invoke();
         }
     }
 }
